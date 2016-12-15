@@ -1,0 +1,22 @@
+
+.wrapper {
+  position:relative;
+  height: 600px;
+  width:1000px;
+}
+
+.square {
+  position:absolute;
+  bottom:0;
+  left:475px;
+  height:30px;
+  width: 30px;
+  border-left: 5px solid #07C3F7;
+  border-top: 5px solid lightpink;
+  border-right: 5px solid gold;
+  border-bottom:5px solid springgreen;
+
+}
+
+
+
