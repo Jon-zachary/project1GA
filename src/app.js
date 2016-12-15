@@ -13,20 +13,36 @@ console.log($())
         $(window).on('keydown', function(e) {
           //down
           if(e.which === 40) {
-            $('.square').animate({'top':'+=15'},25)
+            if(e.shiftKey){
+                $('.square').animate({'top':'+=5'},25)
+              }else{
+            $('.square').animate({'top':'+=20'},25)
+              }
           }
           //up
           if(e.which === 38) {
-            $('.square').animate({'top':'-=15'},25)
+              if(e.shiftKey){
+                $('.square').animate({'top':'-=5'},25)
+              }else{
+            $('.square').animate({'top':'-=20'},25)
+           }
           }
           //right
           if(e.which === 39) {
-            $('.square').animate({'left':'+=15'},25)
+            if(e.shiftKey){
+                $('.square').animate({'left':'+=5'},25)
+              }else{
+            $('.square').animate({'left':'+=20'},25)
           }
+        }
           //left
           if(e.which === 37) {
-            $('.square').animate({'left':'-=15'},25)
+            if(e.shiftKey){
+                $('.square').animate({'left':'-=5'},25)
+              }else{
+            $('.square').animate({'left':'-=20'},25)
           }
+        }
           //rotate
           if(e.which === 32){
              angle  = (angle + 90) % 360;
@@ -34,4 +50,25 @@ console.log($())
           }
         })
     });
+
+
+ let box1 = new FieldBox('#07C3F7','top');
+ let box2 = new FieldBox('lightpink','bottom');
+ let box3 = new FieldBox('springgreen','left');
+ let box4 = new FieldBox('gold','right');
+
+
+ box1.drawBox();
+ box2.drawBox();
+ box3.drawBox();
+ box4.drawBox();
+
+
+
+
+
+
+
+
+
 
