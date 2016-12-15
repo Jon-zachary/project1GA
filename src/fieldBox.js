@@ -32,7 +32,15 @@ class FieldBox {
     $(aBox).css({'top':this.yCoord});
     $(aBox).css({'left':this.xCoord});
     //color
-    $(aBox).css({'border-left':`5px solid ${this.sideColor}`});
+    const side1 = {'border-left':`5px solid ${this.sideColor}`}
+    const side2 = {'border-right':`5px solid ${this.sideColor}`}
+    const side3 = {'border-top':`5px solid ${this.sideColor}`}
+    const side4 = {'border-bottom':`5px solid ${this.sideColor}`}
+    const sideArray = [side1,side2,side3,side4];
+    const rndSide = Math.floor(Math.random()*4);
+    console.log(rndSide);
+    const side  = sideArray[rndSide];
+    $(aBox).css(side);
 
     $(aBox).appendTo('body');
 
