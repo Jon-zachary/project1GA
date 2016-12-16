@@ -66,8 +66,8 @@ console.log($())
 
 $(function playerPosition(){
   $(window).on('keydown',function() {
-    console.log('player',$('.square').css('top'),$('.square').css('left'));
-    console.log('box',box1.yCoord,box1.xCoord,box1.sideLength);
+    // console.log('player',$('.square').css('top'),$('.square').css('left'));
+    // console.log('box',box1.yCoord,box1.xCoord,box1.sideLength);
 
   })
 })
@@ -80,20 +80,47 @@ function collision(aBox = box1){
     let bleft = aBox.xCoord;
     let plength = 30;
     let blength = aBox.sideLength;
-      if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10) && (pleft+plength > bleft -10) && (pleft<bleft+blength+5) ){
-        console.log('collision');
+    if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10) && (pleft+plength >= bleft -10) && (pleft <= bleft+blength+5) ){
+       console.log('collision');
+        if(ptop<=btop && pleft >= bleft && pleft+plength <= bleft+blength){
+        console.log('top');
         }
+        if(ptop >= btop+blength && pleft >= bleft && pleft+plength <= bleft+blength){
+          console.log('bottom');
+        }
+        if(pleft + plength <= bleft && ptop >= btop && ptop+plength <= btop+blength){
+          console.log('left')
+        }
+        if(pleft <= bleft + blength && ptop >= btop && ptop+plength <= btop+blength){
+          console.log('right');
+        }
+     }
+
   })
 }
 
+
 $(function testCollisions(){
   $(window).on('keydown',function(){
-  if(collision(box1)){console.log('box1 collision');}
-  // if(collision(box2)){console.log('box2 collision');}
-  // if(collision(box3)){console.log('box3 collision');}
-  // if(collision(box4)){console.log('box4 collision');}
+    collision(box1);
+    collision(box2);
+    collision(box3);
+    collision(box4);
     })
 })
+
+function onCollision(){
+  const sideFacing = $('.square').angle;
+
+}
+
+
+
+
+
+
+
+
 
 
 
