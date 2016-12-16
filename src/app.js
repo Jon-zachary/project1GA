@@ -7,8 +7,7 @@ console.log($())
         //I tried to use css transforms for all the movement functions
         //but they got in each others way, for the rotate, transform is
         //the easiest way to do it and it doesn't seem to interact with
-        //the other movements. TODO: make it so holding down a button
-        //has no effect.
+        //the other movements.
         let angle = 0;
         $(window).on('keydown', function(e) {
           //down
@@ -49,13 +48,14 @@ console.log($())
             $('.square').css({'transform': 'rotate(' + angle + 'deg)'});
           }
         })
+
     });
 
 
- let box1 = new FieldBox('#07C3F7','top');
- let box2 = new FieldBox('lightpink','bottom');
- let box3 = new FieldBox('springgreen','left');
- let box4 = new FieldBox('gold','right');
+ const box1 = new FieldBox('#07C3F7');
+ const box2 = new FieldBox('lightpink');
+ const box3 = new FieldBox('springgreen');
+ const box4 = new FieldBox('gold');
 
 
  box1.drawBox();
@@ -64,8 +64,36 @@ console.log($())
  box4.drawBox();
 
 
+$(function playerPosition(){
+  $(window).on('keydown',function() {
+    console.log('player',$('.square').css('top'),$('.square').css('left'));
+    console.log('box',box1.yCoord,box1.xCoord,box1.sideLength);
 
+  })
+})
 
+function collision(aBox = box1){
+  $(window).on('keydown',function() {
+    let ptop = parseInt($('.square').css('top'));
+    let pleft = parseInt($('.square').css('left'));
+    let btop = aBox.yCoord;
+    let bleft = aBox.xCoord;
+    let plength = 30;
+    let blength = aBox.sideLength;
+      if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10) && (pleft+plength > bleft -10) && (pleft<bleft+blength+5) ){
+        console.log('collision');
+        }
+  })
+}
+
+$(function testCollisions(){
+  $(window).on('keydown',function(){
+  if(collision(box1)){console.log('box1 collision');}
+  // if(collision(box2)){console.log('box2 collision');}
+  // if(collision(box3)){console.log('box3 collision');}
+  // if(collision(box4)){console.log('box4 collision');}
+    })
+})
 
 
 

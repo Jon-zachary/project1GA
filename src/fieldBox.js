@@ -1,9 +1,8 @@
 class FieldBox {
-  constructor(sideColor,side){
+  constructor(sideColor){
     this.sideLength = null;
     this.xCoord = null;
     this.yCoord = null;
-    this.side = side;
     this.sideColor = sideColor;
     this.setLength();
     this.setCoords();
@@ -31,18 +30,16 @@ class FieldBox {
     //position
     $(aBox).css({'top':this.yCoord});
     $(aBox).css({'left':this.xCoord});
-    //color
+    //color --much longer than it needs to be :(
     const side1 = {'border-left':`5px solid ${this.sideColor}`}
     const side2 = {'border-right':`5px solid ${this.sideColor}`}
     const side3 = {'border-top':`5px solid ${this.sideColor}`}
     const side4 = {'border-bottom':`5px solid ${this.sideColor}`}
     const sideArray = [side1,side2,side3,side4];
-    const rndSide = Math.floor(Math.random()*4);
-    console.log(rndSide);
-    const side  = sideArray[rndSide];
+    const side  = sideArray[Math.floor(Math.random()*4)];
     $(aBox).css(side);
 
-    $(aBox).appendTo('body');
+    $(aBox).appendTo('.wrapper');
 
   }
 
