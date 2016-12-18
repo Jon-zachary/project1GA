@@ -1,14 +1,13 @@
 
 .wrapper {
   position:relative;
-  height: 600px;
-  width:1000px;
+  height: 300px;
+  width:500px;
+  border:2px steelblue dotted;
 }
 
-.square {
+.playerBox {
   position:absolute;
- /* bottom:0;
-  left:475px;*/
   height:30px;
   width: 30px;
   border-left: 5px solid #07C3F7;
