@@ -1,8 +1,7 @@
-console.log('app.js online');
 
-console.log($())
- const box1 = new FieldBox('#07C3F7');
-  const player = new PlayerBox();
+let box1 = new FieldBox('#07C3F7');
+let player = new PlayerBox();
+$(box1).attr('id','box1');
 
  $(function movement() {
   // !!!!!!!!!!The following code is taken almost verbatim from patrick!!!!!!!!
@@ -11,7 +10,7 @@ console.log($())
   //       the easiest way to do it and it doesn't seem to interact with
   //       the other movements.
         let angle = 0;
-        $(window).on('keydown', function(e) {
+        $('body').on('keydown', function(e) {
           //down
           if(e.which === 40) {
             if(e.shiftKey){
@@ -55,7 +54,9 @@ console.log($())
 
     });
 
-
+function onWin(){
+  console.log('you win!')
+}
 
  // const box2 = new FieldBox('lightpink');
  // const box3 = new FieldBox('springgreen');
@@ -79,13 +80,13 @@ console.log($())
 
 
 function collision(aBox = box1){
-  $(window).on('keyup',function() {
-    let ptop = parseInt($('.playerBox').css('top'));
-    let pleft = parseInt($('.playerBox').css('left'));
-    let btop = parseInt(aBox.yCoord);
-    let bleft = parseInt(aBox.xCoord);
-    let plength = 30;
-    let blength = aBox.sideLength;
+  $('body').on('keyup',function() {
+    const ptop = parseInt($('.playerBox').css('top'));
+    const pleft = parseInt($('.playerBox').css('left'));
+    const btop = parseInt(aBox.yCoord);
+    const bleft = parseInt(aBox.xCoord);
+    const plength = 30;
+    const blength = aBox.sideLength;
 
     if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10) && (pleft+plength >= bleft -10) && (pleft <= bleft+blength+5) ){
 
@@ -94,33 +95,38 @@ function collision(aBox = box1){
         if(ptop+plength<btop){
           if(side1 === 'border-top' && player.angle===270){
             console.log('this is the colored side')
+             $('.fieldBox').addClass('win')
           }
           console.log('border-top');
 
-        }
+        }else
         //bottom collision
         if(ptop >= btop+blength){
           if(side1 === 'border-bottom' && player.angle===90){
             console.log('this is the colored side')
+            $('.fieldBox').addClass('win')
 
           }
           console.log('border-bottom');
 
-        }
+        }else
         //left collision
         if(pleft + plength <= bleft){
           if(side1 === 'border-left' && player.angle === 180){
             console.log('this is the colored side');
+            $('.fieldBox').addClass('win');
+            onWin();
           }
-          console.log('border-left',pleft+plength,bleft)
-        }
+          console.log('border-left')
+        }else
         //right collision
         if(pleft + plength>= bleft + blength ){
           if(side1 === 'border-right' && player.angle === 0){
-            console.log('this is the colored side',pleft+plength,bleft)
+            console.log('this is the colored side')
+             $('.fieldBox').addClass('win')
 
           }
-          console.log('border-right',pleft+plength,bleft)
+          console.log('border-right')
 
         }
       }
@@ -128,7 +134,8 @@ function collision(aBox = box1){
   })
 }
 
-collision(box1);
+if(collision(box1)){$('.wrapper').css('background-color','blue')}
+
 
 
 

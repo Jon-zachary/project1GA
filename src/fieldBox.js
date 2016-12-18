@@ -48,6 +48,11 @@ class FieldBox {
 
   }
 
+  onWin(){
+    $(this).sideColor = 'black';
+    console.log('fired');
+  }
+
 }
 
 
