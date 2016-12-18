@@ -91,36 +91,37 @@ function collision(aBox = box1){
 
 
        // top collision
-        if(ptop<=btop){
+        if(ptop+plength<btop){
           if(side1 === 'border-top' && player.angle===270){
             console.log('this is the colored side')
           }
           console.log('border-top');
-        return 'border-top';
+
         }
         //bottom collision
         if(ptop >= btop+blength){
           if(side1 === 'border-bottom' && player.angle===90){
             console.log('this is the colored side')
+
           }
           console.log('border-bottom');
-          return 'border-bottom';
+
         }
         //left collision
-        console.log('border-left')
-        if(pleft + plength === bleft){
+        if(pleft + plength <= bleft){
           if(side1 === 'border-left' && player.angle === 180){
             console.log('this is the colored side');
           }
-          return 'border-left';
+          console.log('border-left',pleft+plength,bleft)
         }
         //right collision
         if(pleft + plength>= bleft + blength ){
           if(side1 === 'border-right' && player.angle === 0){
-            console.log('this is the colored side')
+            console.log('this is the colored side',pleft+plength,bleft)
+
           }
-          console.log('border-right')
-          return 'border-right';
+          console.log('border-right',pleft+plength,bleft)
+
         }
       }
 
