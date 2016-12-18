@@ -138,7 +138,32 @@ function collision(aBox = box1){
   })
 }
 
+function wallCollision(){
+  $('body').on('keyup',function(){
+  const ptop = parseInt($('.playerBox').css('top'));
+  const pleft = parseInt($('.playerBox').css('left'));
+  const plength = 30;
+  const leftWall = parseInt($('.wrapper').css('left'));
+  const topWall = parseInt($('.wrapper').css('top'));
+  const lengthWall = parseInt($('.wrapper').css('width'));
+  const heightWall = parseInt($('.wrapper').css('height'));
+
+  if(ptop  < topWall){
+    onLoss();
+  } else
+  if(pleft + 10< leftWall){
+    onLoss();
+  } else
+  if(ptop+plength> topWall + heightWall){
+    onLoss();
+  } else if(pleft+plength > leftWall + lengthWall){
+    onLoss();
+  }
+  })
+}
+
 collision(box1);
+wallCollision();
 
 
 
