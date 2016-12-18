@@ -1,9 +1,16 @@
-
+body{
+  background-color: black;
+}
 .wrapper {
   position:relative;
   height: 300px;
   width:500px;
   border:2px steelblue dotted;
+  margin:0 auto;
+  padding:0;
+  background-color: white;
+
+
 }
 
 .playerBox {
@@ -31,4 +38,33 @@
   background-color: black;
   border: 0;
 }
+
+header {
+  position:relative;
+  height:250px;
+  text-align: center;
+  background-color: steelblue;
+  line-height: 250px;
+}
+
+
+  h1 {
+  margin:0 0 0 0;
+  display: inline-block;
+  font-size: 72px;
+  font-family: 'Baloo Thambi', cursive;
+  margin-bottom: 100px;
+
+}
+h1::first-letter {
+  color:lightpink;
+}
+nav {
+  font-size: 25px;
+  color:#07C3F7;
+  text-align: center;
+  padding:25px;
+
+}
+
 

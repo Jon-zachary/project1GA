@@ -16,7 +16,7 @@ class FieldBox {
   }
 
   setCoords() {
-    this.xCoord = Math.floor(Math.random()*(470-30) + 30);
+    this.xCoord = Math.floor(Math.random()*(470- this.sideLength) + 30);
     this.yCoord = Math.floor(Math.random()*(200-30) + 30);
   }
 
