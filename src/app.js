@@ -3,12 +3,15 @@ let box1 = new FieldBox('#07C3F7');
 let player = new PlayerBox();
 $(box1).attr('id','box1');
 
+
  $(function movement() {
   // !!!!!!!!!!The following code is taken almost verbatim from patrick!!!!!!!!
   //       I tried to use css transforms for all the movement functions
   //       but they got in each others way, for the rotate, transform is
   //       the easiest way to do it and it doesn't seem to interact with
   //       the other movements.
+
+
         let angle = 0;
         $('body').on('keydown', function(e) {
           //down
@@ -161,7 +164,11 @@ function wallCollision(){
   }
   })
 }
-
+$('.timer').startTimer({
+  onComplete: function(){
+    onLoss();
+  }
+});
 collision(box1);
 wallCollision();
 

@@ -66,5 +66,41 @@ nav {
   padding:25px;
 
 }
+p {
+  margin: 0;
+  color: gold;
+  text-align: center;
+  font-size: 30px;
+  margin-left: 10%;
+}
+/*the following css is for the timer plugin, available
+@ https://github.com/caike/jQuery-Simple-Timer*/
+.timer, .timer-done, .timer-loop {
+    font-size: 30px;
+    color: gold;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .jst-hours {
+    float: left;
+    visibility: hidden;
+
+  }
+  .jst-minutes {
+    float: left;
+    visibility: hidden;
+
+  }
+  .jst-seconds {
+    /*float: left;*/
+    text-align: center;
+  }
+  .jst-clearDiv {
+    clear: both;
+  }
+  .jst-timeout {
+    color: red;
+  }
 
 
