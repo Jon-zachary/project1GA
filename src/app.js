@@ -56,6 +56,12 @@ $(box1).attr('id','box1');
 
 function onWin(){
   console.log('you win!')
+  $('.fieldBox').addClass('win');
+}
+
+function onLoss(){
+  console.log('you lose!')
+  $('.playerBox').addClass('lose');
 }
 
  // const box2 = new FieldBox('lightpink');
@@ -88,54 +94,51 @@ function collision(aBox = box1){
     const plength = 30;
     const blength = aBox.sideLength;
 
-    if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10) && (pleft+plength >= bleft -10) && (pleft <= bleft+blength+5) ){
-
-
+    if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10)
+     && (pleft+plength >= bleft -10) && (pleft <= bleft+blength+5) )
+    {
        // top collision
         if(ptop+plength<btop){
           if(side1 === 'border-top' && player.angle===270){
-            console.log('this is the colored side')
              $('.fieldBox').addClass('win')
+          }else{
+            onLoss();
           }
-          console.log('border-top');
+
 
         }else
         //bottom collision
         if(ptop >= btop+blength){
           if(side1 === 'border-bottom' && player.angle===90){
-            console.log('this is the colored side')
             $('.fieldBox').addClass('win')
-
+          }else{
+            onloss();
           }
-          console.log('border-bottom');
 
         }else
         //left collision
         if(pleft + plength <= bleft){
           if(side1 === 'border-left' && player.angle === 180){
-            console.log('this is the colored side');
-            $('.fieldBox').addClass('win');
             onWin();
+          }else{
+            onLoss();
           }
-          console.log('border-left')
+
         }else
         //right collision
         if(pleft + plength>= bleft + blength ){
           if(side1 === 'border-right' && player.angle === 0){
-            console.log('this is the colored side')
-             $('.fieldBox').addClass('win')
-
+            onWin();
+          }else{
+            onLoss();
           }
-          console.log('border-right')
-
         }
       }
 
   })
 }
 
-if(collision(box1)){$('.wrapper').css('background-color','blue')}
-
+collision(box1);
 
 
 
