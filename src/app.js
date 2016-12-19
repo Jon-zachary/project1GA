@@ -63,7 +63,7 @@ $(box1).attr('id','box1');
 function onWin(){
   player.win=true;
   console.log($('#box1'));
-  $('.fieldBox').css('background-color','#07C3F7')
+  $('.fieldBox').addClass('win')
   // $('#box1').css('background-color','#07C3F7');
   // $('#box2').css('background-color','lightpink');
   $('.winner').css('display','block')
