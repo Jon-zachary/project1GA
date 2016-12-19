@@ -91,7 +91,7 @@ $('button').on('click',function(){
 
 
 function collision(aBox = box1){
-  $('body').on('keyup',function() {
+  $('body').on('keydown',function() {
     const ptop = parseInt($('.playerBox').css('top'));
     const pleft = parseInt($('.playerBox').css('left'));
     const btop = parseInt(aBox.yCoord);
@@ -100,7 +100,7 @@ function collision(aBox = box1){
     const blength = aBox.sideLength;
 
     if((ptop <= btop + blength +10) && (ptop >= btop - plength - 10)
-     && (pleft+plength >= bleft -10) && (pleft <= bleft+blength+5) )
+     && (pleft+plength+10 >= bleft ) && (pleft <= bleft+blength+5) )
     {
        // top collision
         if(ptop+plength<btop){
@@ -175,7 +175,7 @@ $('.timer').startTimer({
    }
 });
 
-collision(box1);
+setInterval(collision(box1),1);
 wallCollision();
 
 
