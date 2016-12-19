@@ -59,33 +59,32 @@ $(box1).attr('id','box1');
 
 function onWin(){
   console.log('you win!')
+  player.win=true;
+  console.log(player.win)
   $('.fieldBox').addClass('win');
+  $('.winner').css('display','block')
 }
 
 function onLoss(){
   console.log('you lose!')
   $('.playerBox').addClass('lose');
+  $('.loser').css('display','block');
 }
 
  // const box2 = new FieldBox('lightpink');
  // const box3 = new FieldBox('springgreen');
  // const box4 = new FieldBox('gold');
 
-
+$('button').on('click',function(){
+  location.reload();
+})
 
  player.drawPlayer();
  box1.drawBox();
  let side1 = Object.keys(box1.side)[0]
- // box2.drawBox();
- // box3.drawBox();
- // box4.drawBox();
 
-//  function testCollisions(){
-//   const box1side = Object.keys(box1.side)[0];
-//   const box2side = Object.keys(box2.side)[0];
-//   const box3side = Object.keys(box3.side)[0];
-//   const box4side = Object.keys(box4.side)[0];
-// }
+
+
 
 
 function collision(aBox = box1){
@@ -103,7 +102,7 @@ function collision(aBox = box1){
        // top collision
         if(ptop+plength<btop){
           if(side1 === 'border-top' && player.angle===270){
-             $('.fieldBox').addClass('win')
+             onWin();
           }else{
             onLoss();
           }
@@ -113,7 +112,7 @@ function collision(aBox = box1){
         //bottom collision
         if(ptop >= btop+blength){
           if(side1 === 'border-bottom' && player.angle===90){
-            $('.fieldBox').addClass('win')
+            onWin();
           }else{
             onloss();
           }
@@ -164,9 +163,13 @@ function wallCollision(){
   }
   })
 }
+//jquery timer plugin
 $('.timer').startTimer({
   onComplete: function(){
+    if(player.win===false){
+    console.log(player.win);
     onLoss();
+  }
   }
 });
 collision(box1);

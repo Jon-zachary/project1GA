@@ -73,6 +73,58 @@ p {
   font-size: 30px;
   margin-left: 10%;
 }
+button {
+  position:absolute;
+  margin-left:35%;
+  margin-top: 5%;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: lightpink;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px steelblue;
+}
+button:active {
+  background-color: #f78082;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.winner {
+  position: relative;
+  border-radius:10%;
+  background-color: grey;
+  display: none;
+  height:500px;
+  width:540px;
+  position: absolute;
+  margin-top: -25%;
+  margin-left: -5%;
+  z-index: 1;
+}
+
+.loser {
+  position: relative;
+  border-radius:10%;
+  background-color: grey;
+  display: none;
+  height:500px;
+  width:540px;
+  position: absolute;
+  margin-top: -25%;
+  margin-left: -5%;
+  z-index: 1;
+}
+
+h3{
+  font-size: 30px;
+}
+
 /*the following css is for the timer plugin, available
 @ https://github.com/caike/jQuery-Simple-Timer*/
 .timer, .timer-done, .timer-loop {
