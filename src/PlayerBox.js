@@ -3,6 +3,7 @@ class PlayerBox {
   this.sideLength = 30;
   this.angle = 0;
   this.win=null;
+  this.boxCount = 0;
   }
   drawPlayer(){
     let aBox = $('<div class=playerBox></div>');

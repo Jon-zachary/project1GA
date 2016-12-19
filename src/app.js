@@ -1,5 +1,8 @@
 
 let box1 = new FieldBox('#07C3F7');
+$(box1).attr('id','box1');
+const box2 = new FieldBox('lightpink');
+$(box2).attr('id','box2')
 let player = new PlayerBox();
 $(box1).attr('id','box1');
 
@@ -59,7 +62,10 @@ $(box1).attr('id','box1');
 
 function onWin(){
   player.win=true;
-  $('.fieldBox').addClass('win');
+  console.log($('#box1'));
+  $('.fieldBox').css('background-color','#07C3F7')
+  // $('#box1').css('background-color','#07C3F7');
+  // $('#box2').css('background-color','lightpink');
   $('.winner').css('display','block')
   $('.timer').css('display','none');
   $('#timetext').css('display','none');
@@ -74,7 +80,7 @@ function onLoss(){
 
 }
 
- // const box2 = new FieldBox('lightpink');
+
  // const box3 = new FieldBox('springgreen');
  // const box4 = new FieldBox('gold');
 
@@ -84,7 +90,9 @@ $('button').on('click',function(){
 
  player.drawPlayer();
  box1.drawBox();
- let side1 = Object.keys(box1.side)[0]
+ // box2.drawBox();
+ const side1 = Object.keys(box1.side)[0]
+ const side2 = Object.keys(box2.side)[0]
 
 
 
@@ -104,17 +112,18 @@ function collision(aBox = box1){
     {
        // top collision
         if(ptop+plength<btop){
-          if(side1 === 'border-top' && player.angle===270){
+          if(side1 === 'border-top' && player.angle===270||
+            side2 === 'border-top' && player.angle===180){
              onWin();
           }else{
             onLoss();
           }
 
-
         }else
         //bottom collision
         if(ptop >= btop+blength){
-          if(side1 === 'border-bottom' && player.angle===90){
+          if(side1 === 'border-bottom' && player.angle===90||
+            side2 === 'border-bottom' && player.angle === 0){
             onWin();
           }else{
             onloss();
@@ -123,7 +132,8 @@ function collision(aBox = box1){
         }else
         //left collision
         if(pleft + plength <= bleft){
-          if(side1 === 'border-left' && player.angle === 180){
+          if(side1 === 'border-left' && player.angle === 180||
+            side2 === 'border-left' && player.angle === 90){
             onWin();
           }else{
             onLoss();
@@ -132,7 +142,8 @@ function collision(aBox = box1){
         }else
         //right collision
         if(pleft + plength>= bleft + blength ){
-          if(side1 === 'border-right' && player.angle === 0){
+          if(side1 === 'border-right' && player.angle === 0||
+            side2 === 'border-right' && player.angle === 270){
             onWin();
           }else{
             onLoss();
@@ -176,6 +187,7 @@ $('.timer').startTimer({
 });
 
 setInterval(collision(box1),1);
+setInterval(collision(box2),1);
 wallCollision();
 
 
