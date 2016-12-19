@@ -5,3 +5,9 @@ Color is kiss is a colorful browser basewd game that pits the player against the
 ![game screenshot](colorkiss.png)  
 
 ##[Play it here](https://jon-zachary.github.io/project1GA/)
+
+
+Technologies used:
+-html
+- css
+-javascript/jquery
