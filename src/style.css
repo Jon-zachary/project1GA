@@ -76,7 +76,7 @@ p {
 button {
   position:absolute;
   margin-left:35%;
-  margin-top: 5%;
+  margin-top: 30%;
   padding: 15px 25px;
   font-size: 24px;
   cursor: pointer;
@@ -96,33 +96,37 @@ button:active {
 }
 
 .winner {
-  position: relative;
-  border-radius:10%;
-  background-color: grey;
-  display: none;
-  height:500px;
-  width:540px;
   position: absolute;
-  margin-top: -25%;
-  margin-left: -5%;
-  z-index: 1;
+  border-radius:10%;
+  display: none;
+  margin-top: -40%;
+  margin-left: -90%;
+  opacity: .75;
 }
 
 .loser {
-  position: relative;
-  border-radius:10%;
-  background-color: grey;
-  display: none;
-  height:500px;
-  width:540px;
   position: absolute;
+  border-radius:10%;
+  display: none;
   margin-top: -25%;
-  margin-left: -5%;
-  z-index: 1;
+  margin-left: -90%;
+  opacity: .75;
+}
+#youlose {
+  margin-top: 65%;
+}
+
+#youwin {
+  margin-top: 65%;
 }
 
 h3{
   font-size: 30px;
+}
+
+#instructions {
+  font-size: 20px;
+  color:lightpink;
 }
 
 /*the following css is for the timer plugin, available

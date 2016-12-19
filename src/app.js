@@ -5,7 +5,7 @@ $(box1).attr('id','box1');
 
 
  $(function movement() {
-  // !!!!!!!!!!The following code is taken almost verbatim from patrick!!!!!!!!
+  // !!!!!!!!!!The following code relies heavily on patrick!!!!!!!!
   //       I tried to use css transforms for all the movement functions
   //       but they got in each others way, for the rotate, transform is
   //       the easiest way to do it and it doesn't seem to interact with
@@ -58,17 +58,20 @@ $(box1).attr('id','box1');
     });
 
 function onWin(){
-  console.log('you win!')
   player.win=true;
-  console.log(player.win)
   $('.fieldBox').addClass('win');
   $('.winner').css('display','block')
+  $('.timer').css('display','none');
+  $('#timetext').css('display','none');
 }
 
 function onLoss(){
-  console.log('you lose!')
+  player.win=false
   $('.playerBox').addClass('lose');
   $('.loser').css('display','block');
+  $('.timer').css('display','none');
+  $('#timetext').css('display','none');
+
 }
 
  // const box2 = new FieldBox('lightpink');
@@ -166,12 +169,12 @@ function wallCollision(){
 //jquery timer plugin
 $('.timer').startTimer({
   onComplete: function(){
-    if(player.win===false){
-    console.log(player.win);
+    if(player.win===null){
     onLoss();
-  }
-  }
+    }
+   }
 });
+
 collision(box1);
 wallCollision();
 
